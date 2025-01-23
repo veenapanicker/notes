@@ -6,7 +6,7 @@ import NoteHeader from "./note-header";
 import NoteContent from "./note-content";
 import SessionId from "./session-id";
 import { useState, useCallback, useRef, useContext } from "react";
-import { SessionNotesContext } from "@/app/session-notes";
+import { SessionNotesContext } from "@/app/notes/session-notes";
 
 export default function Note({ note: initialNote }: { note: any }) {
   const supabase = createClient();
@@ -52,7 +52,7 @@ export default function Note({ note: initialNote }: { note: any }) {
             }
           }
 
-          await fetch("/revalidate", {
+          await fetch("/notes/revalidate", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -72,7 +72,7 @@ export default function Note({ note: initialNote }: { note: any }) {
   const canEdit = sessionId === note.session_id;
 
   return (
-    <div className="h-full overflow-y-auto">
+    <div className="h-full overflow-y-auto bg-background">
       <SessionId setSessionId={setSessionId} />
       <NoteHeader note={note} saveNote={saveNote} canEdit={canEdit} />
       <NoteContent note={note} saveNote={saveNote} canEdit={canEdit} />
