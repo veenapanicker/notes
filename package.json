@@ -40,7 +40,8 @@
     "remark-gfm": "^4.0.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "uuid": "^10.0.0"
+    "uuid": "^10.0.0",
+    "virtua": "^0.40.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.5",

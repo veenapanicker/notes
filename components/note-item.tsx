@@ -97,22 +97,21 @@ export function NoteItem({
   const NoteContent = (
     <li
       tabIndex={0}
+      style={{ contentVisibility: "auto" }}
       className={`h-[70px] w-full ${
         (!isMobile && isSearching && isHighlighted) ||
         (!isSearching && item.slug === selectedNoteSlug)
           ? "bg-[#FFE390] dark:bg-[#9D7D28] dark:text-white rounded-md"
           : ""
       } ${
-        !isMobile && showDivider &&
+        !isMobile &&
+        showDivider &&
         (isSearching ? !isHighlighted : item.slug !== selectedNoteSlug)
           ? 'after:content-[""] after:block after:mx-2 after:border-t after:border-muted-foreground/20'
           : ""
       }`}
     >
-      <div 
-        data-note-slug={item.slug}
-        className={`h-full w-full px-4`}
-      >
+      <div data-note-slug={item.slug} className={`h-full w-full px-4`}>
         <Link
           href={`/notes/${item.slug || ""}`}
           prefetch={true}

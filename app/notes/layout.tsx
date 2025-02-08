@@ -36,6 +36,10 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <title>{siteConfig.title}</title>
+        <script
+          crossOrigin="anonymous"
+          src="//unpkg.com/react-scan/dist/auto.global.js"
+        />
         <meta property="twitter:card" content="summary_large_image"></meta>
         <meta property="twitter:title" content={siteConfig.title}></meta>
         <meta
